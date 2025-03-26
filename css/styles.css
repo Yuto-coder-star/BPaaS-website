@@ -889,6 +889,18 @@ html, body {
     width: 100%;
     left: 0;
     top: 0;
+    z-index: 999;
+  }
+  
+  /* ハンバーガーメニューボタンのz-indexを上げる */
+  .mobile-menu-btn {
+    position: relative;
+    z-index: 1001;
+  }
+  
+  /* ナビリンクのz-indexを適切に設定 */
+  .nav-links {
+    z-index: 1000;
   }
   
   /* ナビゲーションの下に適切なスペースを作るための調整 */
