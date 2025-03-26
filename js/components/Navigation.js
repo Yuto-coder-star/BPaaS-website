@@ -7,6 +7,12 @@ const Navigation = () => {
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
+
+  // メニュー項目クリック時の処理を追加
+  const handleMenuItemClick = () => {
+    // モバイルメニューを閉じる
+    setMobileMenuOpen(false);
+  };
   
   React.useEffect(() => {
     const handleScroll = () => {
@@ -44,14 +50,14 @@ const Navigation = () => {
           <i className={mobileMenuOpen ? "fas fa-times" : "fas fa-bars"}></i>
         </button>
         <ul className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
-          <li><a href="#overview" className={`nav-link ${activeLink === 'overview' ? 'active' : ''}`}>企業概要</a></li>
-          <li><a href="#features" className={`nav-link ${activeLink === 'features' ? 'active' : ''}`}>特徴・メリット</a></li>
-          <li><a href="#pricing" className={`nav-link ${activeLink === 'pricing' ? 'active' : ''}`}>料金・導入</a></li>
-          <li><a href="#cases" className={`nav-link ${activeLink === 'cases' ? 'active' : ''}`}>導入事例</a></li>
-          <li><a href="#integration" className={`nav-link ${activeLink === 'integration' ? 'active' : ''}`}>MF連携</a></li>
-          <li><a href="#dx" className={`nav-link ${activeLink === 'dx' ? 'active' : ''}`}>DXへの取り組み</a></li>
-          <li><a href="#faq" className={`nav-link ${activeLink === 'faq' ? 'active' : ''}`}>FAQ</a></li>
-          <li><a href="#contact" className="nav-cta">お問い合わせ</a></li>
+          <li><a href="#overview" className={`nav-link ${activeLink === 'overview' ? 'active' : ''}`} onClick={handleMenuItemClick}>企業概要</a></li>
+          <li><a href="#features" className={`nav-link ${activeLink === 'features' ? 'active' : ''}`} onClick={handleMenuItemClick}>特徴・メリット</a></li>
+          <li><a href="#pricing" className={`nav-link ${activeLink === 'pricing' ? 'active' : ''}`} onClick={handleMenuItemClick}>料金・導入</a></li>
+          <li><a href="#cases" className={`nav-link ${activeLink === 'cases' ? 'active' : ''}`} onClick={handleMenuItemClick}>導入事例</a></li>
+          <li><a href="#integration" className={`nav-link ${activeLink === 'integration' ? 'active' : ''}`} onClick={handleMenuItemClick}>MF連携</a></li>
+          <li><a href="#dx" className={`nav-link ${activeLink === 'dx' ? 'active' : ''}`} onClick={handleMenuItemClick}>DXへの取り組み</a></li>
+          <li><a href="#faq" className={`nav-link ${activeLink === 'faq' ? 'active' : ''}`} onClick={handleMenuItemClick}>FAQ</a></li>
+          <li><a href="#contact" className="nav-cta" onClick={handleMenuItemClick}>お問い合わせ</a></li>
         </ul>
       </div>
     </nav>
