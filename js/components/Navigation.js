@@ -60,22 +60,8 @@ const Navigation = () => {
     };
   }, [mobileMenuOpen]);
   
-  // コンテンツ領域にpadding-topを追加するためのコンポーネント
-  React.useEffect(() => {
-    // ナビゲーションの高さを取得してページコンテンツにpadding-topを適用
-    const nav = document.querySelector('nav');
-    if (nav) {
-      const navHeight = nav.offsetHeight;
-      document.body.style.paddingTop = `${navHeight}px`;
-    }
-    
-    return () => {
-      document.body.style.paddingTop = '0';
-    };
-  }, []);
-  
   return (
-    <nav className={`fixed-nav ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={scrolled ? 'scrolled' : ''}>
       <div className="container nav-container">
         <a href="#top" className="nav-logo">
           <i className="fas fa-layer-group"></i> BPaaS
@@ -97,36 +83,3 @@ const Navigation = () => {
     </nav>
   );
 };
-
-/* CSS追加部分 */
-/* 
-以下のCSSをスタイルシートに追加してください
-
-.fixed-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: #fff; /* または任意の背景色 */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.fixed-nav.scrolled {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  /* 他のスクロール時のスタイル変更 */
-}
-
-/* モバイルメニューの調整 */
-@media (max-width: 768px) {
-  .nav-links {
-    position: fixed;
-    top: 60px; /* ナビゲーションバーの高さに応じて調整 */
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-}
-*/
