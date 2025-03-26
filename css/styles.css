@@ -874,3 +874,25 @@
       grid-template-columns: 1fr;
     }
   }
+
+/* 水平スクロール問題の修正 */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* モバイル表示のナビゲーション固定対応 */
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+  
+  /* ナビゲーションの下に適切なスペースを作るための調整 */
+  #root > header {
+    padding-top: calc(4rem + 70px);
+  }
+}
